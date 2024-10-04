@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Move folders to different locations
+sudo mv Are_u_Sure_u_can_open_it /bin
+sudo mv Was_it_that_easy /etc/apt
+sudo mv CAREFULL!!!! /dev/char
+sudo mv All_the_best_you_will_need_it /var/www
+sudo mv DONT_OPEN /var/lib
+
+# Check if the folders were moved successfully
+if [ -d /bin/Are_u_Sure_u_can_open_it ]; then
+  echo "Folder 'Are_u_Sure_u_can_open_it' moved successfully"
+else
+  echo "Error moving folder 'Are_u_Sure_u_can_open_it'"
+fi
+
+if [ -d /etc/apt/Was_it_that_easy ]; then
+  echo "Folder 'Was_it_that_easy' moved successfully"
+else
+  echo "Error moving folder 'Was_it_that_easy' "
+fi
+
+if [ -d /dev/char/CAREFULL!!!! ]; then
+  echo "Folder 'CAREFULL!!!!' moved successfully"
+else
+  echo "Error moving folder 'CAREFULL!!!!' "
+fi
+
+if [ -d /var/www/All_the_best_you_will_need_it ]; then
+  echo "Folder 'All_the_best_you_will_need_it' moved successfully"
+else
+  echo "Error moving folder 'All_the_best_you_will_need_it' "
+fi
+
+if [ -d /var/lib/DONT_OPEN ]; then
+  echo "Folder 'DONT_OPEN' moved successfully "
+else
+  echo "Error moving folder 'DONT_OPEN' "
+fi

@@ -1,0 +1,80 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+    body {
+  background: #111;
+  color: #411;
+  font-family: Consolas, Courier, monospace;
+  font-size: 60px;
+  text-shadow: 0 0 15px #411;
+  height: 100%;
+}
+
+div {
+  position: relative;
+  top: 50%;
+  margin: -30px auto;
+  text-align: center;
+}
+
+.glow {
+  color: #f00;
+  text-shadow: 0px 0px 10px #f00;
+}
+
+span {
+  display: inline-block;
+  padding: 0 10px;
+}
+</style>
+
+<div id="loading">You have been hacked CHEAK THE CODE IF U WANT</div>
+
+<script>
+  const alphabet = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"];
+  let letterCount = 0;
+  const $el = jQuery("#loading");
+  const word = $el.html().trim();
+  let finished = false;
+
+  $el.html("");
+  for (let i = 0; i < word.length; i++) {
+    $el.append(`<span>${word.charAt(i)}</span>`);
+  }
+
+  setTimeout(write, 75);
+  const incrementer = setTimeout(inc, 1000);
+
+  function write() {
+    for (let i = letterCount; i < word.length; i++) {
+      const c = Math.floor(Math.random() * 36);
+      jQuery(`span:eq(${i})`).text(alphabet[c]);
+    }
+    if (!finished) {
+      setTimeout(write, 75);
+    }
+  }
+
+  function inc() {
+    jQuery(`span:eq(${letterCount})`).text(word[letterCount]);
+    jQuery(`span:eq(${letterCount})`).addClass("glow");
+    letterCount++;
+    if (letterCount >= word.length) {
+      finished = true;
+      setTimeout(reset, 1500);
+    } else {
+      setTimeout(inc, 1000);
+    }
+  }
+
+  function reset() {
+    letterCount = 0;
+    finished = false;
+    setTimeout(inc, 1000);
+    setTimeout(write, 75);
+    jQuery("span").removeClass("glow");
+  }
+</script>
+
+<!-- null.eec{HTTP_N0t_HTTPS?Th@t_Was_A_B@d_Cho1ce} -->
+<!-- ENSURE THAT THE WEBSITE U VISIT HAVE HTTPS NOT HTTP -->
